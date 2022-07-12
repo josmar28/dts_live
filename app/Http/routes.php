@@ -321,6 +321,7 @@ Route::post('/change/password', 'PasswordController@save_changes');
 Route::get('/form/incoming/letter', 'MailLetterIncomingController@incoming_letter');
 Route::get('/session','DocumentController@session');
 
+
 //ADMIN CONTROLLER
 //users
 Route::get('users', 'AdminController@users');
