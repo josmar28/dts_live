@@ -545,6 +545,8 @@ class DocumentController extends Controller
             return "Multipurpose Loan";
         case "CONTRACT" :
             return "Contract";
+        case "SRF_ICT" :
+            return "Service Request Form - ICT";
          case "ALL" :
             return "All Documents";
          default:
