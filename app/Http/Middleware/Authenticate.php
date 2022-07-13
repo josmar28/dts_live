@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Illuminate\Support\Facades\Session;
 
 class Authenticate
 {
@@ -28,8 +29,14 @@ class Authenticate
         $user = Auth::user();
         $id = $user->id;
 
-        User::where('id',$id)
-            ->update(['status'=>1]);
+        if(Auth::check()){
+            if(Auth::user()->status == 0) {
+    
+                return redirect('/logout');
+            }
+        }
+
+
         return $next($request);
     }
 }

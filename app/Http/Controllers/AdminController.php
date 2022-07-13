@@ -40,7 +40,8 @@ class AdminController extends Controller
 
         
         $users = User::where('id','!=', $request->user()->id)
-                    ->where('status',1)->paginate(10);
+                    ->where('status',1)
+                    ->paginate(10);
         return view('users.users')
                 ->with('users',$users);
     }
@@ -55,7 +56,7 @@ class AdminController extends Controller
         }
         if($request->isMethod('post')){
             $user = User::where('username', $request->input('username'))->first();
-            if(isset($user) and count($user) > 0) {
+            if(isset($user)) {
                 return redirect('users')->with('used','Username is already used.');
             }
             $user = new User();
@@ -68,6 +69,7 @@ class AdminController extends Controller
             $user->division = $request->input('division');
             $user->section = $request->input('section');
             $user->user_priv = $request->input('user_type');
+            $user->status = 1;
             $user->save();
             return redirect('users');
         }
@@ -124,7 +126,7 @@ class AdminController extends Controller
     public function search(Request $request) {
         $keyword = $request->input('search');
         $user = User::where('status',1)
-                   ->where(function($q) use ($keyword){
+              ->where(function($q) use ($keyword){
                     $q->where('fname','LIKE', "%". $keyword ."%")
                     ->orWhere('mname', 'LIKE', "%". $keyword."%")
                     ->orWhere('lname', 'LIKE', "%". $keyword. "%")

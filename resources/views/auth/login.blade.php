@@ -100,3 +100,19 @@
     <!-- iCheck -->
   </body>
 </html>
+@section('js')
+<script>
+
+@if(Session::get('not_active'))
+        Lobibox.notify('success', {
+            title: "",
+            msg: "Account not active. Please contact admin",
+            size: 'mini',
+            rounded: true
+        });
+        <?php
+        Session::put("not_active",false)
+        ?>
+@endif
+</script>
+@endsection
