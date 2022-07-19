@@ -40,7 +40,6 @@ class AdminController extends Controller
 
         
         $users = User::where('id','!=', $request->user()->id)
-                    ->where('status',1)
                     ->paginate(10);
         return view('users.users')
                 ->with('users',$users);
@@ -125,8 +124,7 @@ class AdminController extends Controller
 
     public function search(Request $request) {
         $keyword = $request->input('search');
-        $user = User::where('status',1)
-              ->where(function($q) use ($keyword){
+        $user = User::where(function($q) use ($keyword){
                     $q->where('fname','LIKE', "%". $keyword ."%")
                     ->orWhere('mname', 'LIKE', "%". $keyword."%")
                     ->orWhere('lname', 'LIKE', "%". $keyword. "%")

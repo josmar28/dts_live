@@ -547,6 +547,8 @@ class DocumentController extends Controller
             return "Contract";
         case "SRF_ICT" :
             return "Service Request Form - ICT";
+        case "RO" :
+            return "Regional Order";
          case "ALL" :
             return "All Documents";
          default:
@@ -612,7 +614,10 @@ class DocumentController extends Controller
             ->pluck('pr_no')
             ->first();
 
-            $pr_no = DB::connection('prdb')->table('procure_main')->where('id',$barcode)->pluck('L1-trackno');
+            $pr_no = DB::connection('prdb')->table('procure_main')->where('id',$barcode)
+            ->whereNotNull('L1-trackno')
+            ->pluck('L1-trackno');
+            
             $po_no =array();
 
         Session::put('route_no', $route_no);

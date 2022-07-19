@@ -88,7 +88,7 @@ $filter = Doc::isIncluded($doc_type);
             @endif
             @if($filter[2]!='hide')
             <?php
-                $barcode = DB::connection('prdb')->table('procure_main')->where('L1-status','2')->pluck('id');
+                $barcode = DB::connection('prdb')->table('procure_main')->pluck('id');
                 // print_r($barcode);
             ?>
                 <tr>

@@ -29,13 +29,11 @@ class Authenticate
         $user = Auth::user();
         $id = $user->id;
 
-        if(Auth::check()){
-            if(Auth::user()->status == 0) {
-    
-                return redirect('/logout');
-            }
-        }
-
+        // if(Auth::check()){
+        //     if(Auth::user()->status == 0) {
+        //         return redirect('/logout');
+        //     }
+        // }
 
         return $next($request);
     }
