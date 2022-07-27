@@ -549,6 +549,8 @@ class DocumentController extends Controller
             return "Service Request Form - ICT";
         case "RO" :
             return "Regional Order";
+        case "ACCOM_REP" :
+            return "Accomplishment Report";
          case "ALL" :
             return "All Documents";
          default:
