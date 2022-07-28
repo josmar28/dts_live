@@ -768,7 +768,7 @@ class DocumentController extends Controller
         $remarks = 'From: '.$from. '<br><br>Message: <strong style="display: inline-block;color: #a6201d">' .$remarks.'</strong>';
 
         //checker
-        $this->releasedStatusChecker($info->first()->route_no,Auth::user()->section);
+        // $this->releasedStatusChecker($info->first()->route_no,Auth::user()->section);
         $released_section_to = Users::select('users.section')->leftJoin('section','section.id','=','users.section')->where('users.id','=',$info->first()->delivered_by)->first()->section;
 
         //accepted document
