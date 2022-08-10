@@ -533,6 +533,8 @@ class DocumentController extends Controller
             return "Purchase Request - Regular Purchase -  Vehicle Repair & Maintenance";
         case "PR_SECURITY" :
             return "Purchase Request - Regular Purchase - Security";
+        case "PR_COLAT" :
+            return "Purchase Request - Regular Purchase - Collateral";
         case "REQ_ISSUE" :
              return "Request and Issue Slip";
         case "sched_inter" :
