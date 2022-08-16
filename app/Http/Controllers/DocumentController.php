@@ -553,6 +553,8 @@ class DocumentController extends Controller
             return "Regional Order";
         case "ACCOM_REP" :
             return "Accomplishment Report";
+        case "CONFIRM_FORM" :
+            return "Confirmation Form";
          case "ALL" :
             return "All Documents";
          default:
