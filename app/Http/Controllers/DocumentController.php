@@ -616,16 +616,32 @@ class DocumentController extends Controller
             $doc_type = Tracking::where('route_no',$route_no)
             ->pluck('doc_type')
             ->first();
+
             $barcode = Tracking::where('route_no',$route_no)
             ->pluck('pr_no')
             ->first();
-
+            
+            if($barcode)
+            {
             $pr_no = DB::connection('prdb')->table('procure_main')->where('id',$barcode)
             ->whereNotNull('L1-trackno')
             ->pluck('L1-trackno');
-            
-            $po_no =array();
+            }
+            else{
+                $pr_no = array();
+            }
 
+            if($pr_no)
+            {
+            $po_no = DB::connection('podb')->table('tbl_poentry')->where('PR_NO',$pr_no)
+            ->whereNotNull('PO_NO')
+            ->pluck('PO_NO');
+            }
+            else
+             {
+                $po_no = array();
+            }
+            
         Session::put('route_no', $route_no);
          return view('document.track',[
                 'document' => $document,

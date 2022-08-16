@@ -23,6 +23,8 @@ Route::get('document/accept/{id}', 'DocumentController@updateDocument'); //for b
 Route::get('prapi/print/{barcode}', 'PrController@index'); 
 Route::post('check/PRno', 'PrController@checkPrno'); 
 
+//PO API
+Route::get('poapi/print/{po_num}', 'POController@index');
 
 //new features
 Route::get('chd12report/top10', 'CHD12ReportController@top10');

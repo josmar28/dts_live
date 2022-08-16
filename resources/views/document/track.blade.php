@@ -11,6 +11,8 @@ $user = Auth::user();
 $id = $user->id;
 $section = \App\User::where('id', $id)->pluck('section')->first();
 
+foreach($po_no as $po_num)
+
 ?>
 @if(count($document))
     <style>
@@ -250,7 +252,7 @@ $section = \App\User::where('id', $id)->pluck('section')->first();
              <button type="button" class="btn btn-info" disabled><i class="fa fa-check" ></i> PR</button>
              @endif
              @if(count($po_no) > 0)
-            <button type="button" class="btn btn-info"><i class="fa fa-check"></i> PO</button>
+            <button type="button" class="btn btn-info" onclick="window.open('{{ asset('poapi/print/'.$po_num) }}')"><i class="fa fa-check"></i> PO</button>
             @else
             <button type="button" class="btn btn-info" disabled><i class="fa fa-check" ></i> PO</button>
             @endif
