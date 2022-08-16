@@ -607,7 +607,7 @@ class DocumentController extends Controller
 
     public function track($route_no)
     {
-        $document = Tracking_Details::where('route_no',$route_no)
+            $document = Tracking_Details::where('route_no',$route_no)
             ->orderBy('date_in','asc')
             ->get();
 
@@ -623,9 +623,9 @@ class DocumentController extends Controller
             
             if($barcode)
             {
-            $pr_no = DB::connection('prdb')->table('procure_main')->where('id',$barcode)
-            ->whereNotNull('L1-trackno')
-            ->pluck('L1-trackno');
+                $pr_no = DB::connection('prdb')->table('procure_main')->where('id',$barcode)
+                ->whereNotNull('L1-trackno')
+                ->pluck('L1-trackno');
             }
             else{
                 $pr_no = array();
@@ -633,9 +633,9 @@ class DocumentController extends Controller
 
             if($pr_no)
             {
-            $po_no = DB::connection('podb')->table('tbl_poentry')->where('PR_NO',$pr_no)
-            ->whereNotNull('PO_NO')
-            ->pluck('PO_NO');
+                 $po_no = DB::connection('podb')->table('tbl_poentry')->where('PR_NO',$pr_no)
+                ->whereNotNull('PO_NO')
+                ->pluck('PO_NO');
             }
             else
              {
