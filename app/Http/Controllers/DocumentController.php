@@ -555,6 +555,8 @@ class DocumentController extends Controller
             return "Accomplishment Report";
         case "CONFIRM_FORM" :
             return "Confirmation Form";
+        case "PER_EVA_FORM" :
+            return "Performance Evaluation Form";
          case "ALL" :
             return "All Documents";
          default:
