@@ -557,6 +557,8 @@ class DocumentController extends Controller
             return "Confirmation Form";
         case "PER_EVA_FORM" :
             return "Performance Evaluation Form";
+        case "SPA_FS" :
+            return "Statement of Premium Account - Formal Sector";
          case "ALL" :
             return "All Documents";
          default:
