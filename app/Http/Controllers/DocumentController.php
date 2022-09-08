@@ -559,6 +559,8 @@ class DocumentController extends Controller
             return "Performance Evaluation Form";
         case "SPA_FS" :
             return "Statement of Premium Account - Formal Sector";
+        case "ADMIN_INFO_FORM" :
+            return "Administrator Information Form";
          case "ALL" :
             return "All Documents";
          default:

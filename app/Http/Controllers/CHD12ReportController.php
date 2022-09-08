@@ -851,8 +851,42 @@ class CHD12ReportController extends Controller
             $top10 = DB::connection('mysql')->select("CALL chd12_top10dur('$year','$quarter')");
         }
 
+        if($quarter == 1 && $type == 'reported')
+        {
+            $title = 'January - March '.$year.'Reported Documents';
+        }
+        elseif($quarter == 2 && $type == 'reported')
+        {
+            $title = 'April - June '.$year.' Reported Documents';
+        }
+        elseif($quarter == 3 && $type == 'reported')
+        {
+            $title = 'July - September '.$year.' Reported Documents';
+        }
+        elseif($quarter == 4 && $type == 'reported')
+        {
+            $title = 'October - December '.$year.' Reported Documents';
+        }
+        elseif($quarter == 1 && $type == 'duration')
+        {
+            $title = 'January - March '.$year.' Lapsed Documents';
+        }
+        elseif($quarter == 2 && $type == 'duration')
+        {
+            $title = 'April - June '.$year.' Lapsed Documents';
+        }
+        elseif($quarter == 3 && $type == 'duration')
+        {
+            $title = 'July - September '.$year.' Lapsed Documents';
+        }
+        elseif($quarter == 4 && $type == 'duration')
+        {
+            $title = 'October - December '.$year.' Lapsed Documents';
+        }
+
         return view('report.top10',[
             'newyear' => $year,
+            'title' => $title,
             'quarter' => $quarter,
             'type' => $type,
             'top10' => $top10
