@@ -561,6 +561,8 @@ class DocumentController extends Controller
             return "Statement of Premium Account - Formal Sector";
         case "ADMIN_INFO_FORM" :
             return "Administrator Information Form";
+        case "SYS_ACCEPT_FORM" :
+            return "System Acceptance Form";
          case "ALL" :
             return "All Documents";
          default:
