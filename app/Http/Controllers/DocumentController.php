@@ -563,6 +563,8 @@ class DocumentController extends Controller
             return "Administrator Information Form";
         case "SYS_ACCEPT_FORM" :
             return "System Acceptance Form";
+        case "BENEFITS_REMIT" :
+            return "Health Benefits Remittances";
          case "ALL" :
             return "All Documents";
          default:
