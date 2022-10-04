@@ -86,16 +86,16 @@ class DocumentController extends Controller
                     $update[$key] = $value;
                 }
             endforeach;
-            Tracking::where('id',$id)
-                ->update($update);
+            // Tracking::where('id',$id)
+            //     ->update($update);
             $route_no = Session::get('route_no');
-           $desc_up = Tracking_Details::where('route_no',$route_no)
+           $desc_up = Tracking::where('route_no',$route_no)
             ->orderby('id','desc');
 
             if($desc_up->first())
             {
                 $desc_up->update([
-                    'action' => $req->description
+                    'description' => $req->description
                 ]);
             }
 
